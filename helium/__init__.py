@@ -511,6 +511,8 @@ class Config:
 	For the best results, it is recommended to not use Selenium's
 	``.implicitly_wait(...)`` in conjunction with Helium.
 	"""
+	def __repr__(self):
+		return 'Config(implicit_wait_secs=%r)' % self.implicit_wait_secs
 
 class GUIElement:
 	def __init__(self):
