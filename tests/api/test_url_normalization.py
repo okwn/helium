@@ -3,7 +3,7 @@ from tests.api import BrowserAT
 
 
 class URLNormalizationTest(BrowserAT):
-	"""Test URL normalization in helium._impl.util.normalize_url"""
+	"""Test URL normalization in helium._impl.util.normalize_url for bare hostnames."""
 
 	def get_page(self):
 		return 'test_write.html'
@@ -39,9 +39,20 @@ class URLNormalizationTest(BrowserAT):
 		self.assertEqual('http://example.com/', result)
 
 	def test_go_to_bare_hostname(self):
-		"""Regression: go_to() should accept bare hostnames and normalize them."""
-		# Using file:// URL since we're running a local test server
-		# bare hostname normalization is primarily for CLI
+		"""Regression: go_to() should accept bare hostnames without crashing."""
 		from helium._impl.util import normalize_url
+		# bare hostname normalization primary use is CLI
 		result = normalize_url('localhost:8000/test')
 		self.assertEqual('https://localhost:8000/test', result)
+
+	def test_normalize_ip_address(self):
+		"""Bare IP address should normalize with https."""
+		from helium._impl.util import normalize_url
+		result = normalize_url('192.168.1.1')
+		self.assertEqual('https://192.168.1.1', result)
+
+	def test_normalize_localhost(self):
+		"""localhost should normalize correctly."""
+		from helium._impl.util import normalize_url
+		result = normalize_url('localhost')
+		self.assertEqual('https://localhost', result)
