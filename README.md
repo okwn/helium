@@ -161,3 +161,6 @@ since I have no need for it, I removed the (probably broken) old implementation.
 
 The name Helium was chosen because it is also a chemical element like Selenium,
 but it is lighter.
+
+## Contributing
+PRs welcome!
