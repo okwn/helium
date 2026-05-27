@@ -2,7 +2,7 @@ LICENSES OF THIRD-PARTY LIBRARIES
 =================================
 
 Helium is based on several free and open source software libraries and
-could not have been developed without them. Here we describle the licensing
+could not have been developed without them. Here we describe the licensing
 terms under which we are using them.
 
 Selenium Java & Python Bindings
