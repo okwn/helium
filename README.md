@@ -164,3 +164,6 @@ but it is lighter.
 
 ## Contributing
 PRs welcome!
+
+<!-- Contributor: Arvuno - documentation update -->
+
